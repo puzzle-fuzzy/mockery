@@ -15,11 +15,19 @@ const isWindows = process.platform === "win32";
  * On Windows, runs `netstat -ano | findstr :${port}` which is far faster
  * than parsing the full netstat output (findstr filters at the OS level).
  * On Unix, uses `lsof -ti tcp:${port}`.
+ *
+ * Note: the findstr pattern is just `:${port}` (no trailing space). An earlier
+ * version used `":${port} "` hoping to anchor on the whitespace after the
+ * port, but Windows findstr mishandles a trailing space in the search string
+ * (especially under `cmd /c` via Git Bash) and matches nothing — so the script
+ * silently killed no processes. Precise port matching is instead enforced
+ * below via `localAddress.endsWith(":${port}")`, which also avoids the
+ * `:51` substring-matching `:5199` pitfall.
  */
 function findPidsOnPort(port: string): string[] {
   if (isWindows) {
     // findstr is far faster than parsing 1000+ netstat lines in JS
-    const result = spawnSync(["cmd", "/c", `netstat -ano | findstr ":${port} "`], {
+    const result = spawnSync(["cmd", "/c", `netstat -ano | findstr :${port}`], {
       stdout: "pipe",
       stderr: "pipe",
     });

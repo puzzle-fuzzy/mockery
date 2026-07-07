@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm turbo --filter=@mockery/web --filter=@mockery/api dev",
+    "ui:add": "shadcn add -c packages/ui"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +13,15 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.9.0",
+      "version": "11.9.0",
       "onFail": "download"
     }
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "tailwindcss": "^4.3.2",
+    "turbo": "^2.10.3",
+    "zod": "3.25.76"
+  }
 }

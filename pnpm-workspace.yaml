@@ -4,4 +4,11 @@ packages:
   - "services/*"
 
 allowBuilds:
+  electron-winstaller: true
   esbuild: true
+
+blockExoticSubdeps: false
+nodeLinker: hoisted
+
+overrides:
+  zod: 3.25.76

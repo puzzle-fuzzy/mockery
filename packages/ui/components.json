@@ -13,11 +13,11 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@mockery/ui/components",
+    "ui": "@mockery/ui/components/ui",
+    "lib": "@mockery/ui/lib",
+    "utils": "@mockery/ui/lib/utils",
+    "hooks": "@mockery/ui/hooks"
   },
   "menuColor": "default",
   "menuAccent": "subtle",

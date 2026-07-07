@@ -1,0 +1,15 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env"],
+  "tasks": {
+    "typecheck": {
+      "dependsOn": [],
+      "outputs": [],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm turbo --filter=@mockery/web --filter=@mockery/api dev",
+    "dev:desktop": "pnpm turbo --filter=@mockery/desktop start",
     "ui:add": "shadcn add -c packages/ui"
   },
   "keywords": [],

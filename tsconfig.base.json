@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "types": ["@types/node", "@types/bun"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["apps/web/src/*"],
+      "@mockery/api-client": ["packages/api-client/src/index.ts"],
+      "@mockery/api": ["services/api/src/index.ts"],
+      "@mockery/config": ["packages/config/src/index.ts"],
+      "@mockery/console-core": ["packages/console-core/src/index.tsx"],
+      "@mockery/db": ["packages/db/src/index.ts"],
+      "@mockery/deploy-core": ["packages/deploy-core/src/index.ts"],
+      "@mockery/runtime": ["packages/runtime/src/index.ts"],
+      "@mockery/shared": ["packages/shared/src/index.ts"],
+      "@mockery/storage": ["packages/storage/src/index.ts"],
+      "@mockery/ui": ["packages/ui/src/index.ts"]
+    }
+  }
+}

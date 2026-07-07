@@ -1,11 +1,13 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import { ConsoleApp } from "@mockery/console-core";
+import { createWebRuntime } from "@mockery/runtime";
 
-import './main.css'
+const root = document.getElementById("root");
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+if (!root) {
+  throw new Error("Missing #root element");
+}
+
+const apiBaseUrl = import.meta.env.VITE_MOCKERY_API_BASE_URL ?? "http://localhost:3001";
+
+createRoot(root).render(<ConsoleApp runtime={createWebRuntime()} apiBaseUrl={apiBaseUrl} />);

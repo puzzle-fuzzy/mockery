@@ -1,4 +1,0 @@
-@import "@mockery/ui/globals.css";
-@import "tailwindcss";
-
-@source "../../../packages/ui/src/**/*.{ts,tsx}";

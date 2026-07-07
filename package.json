@@ -1,12 +1,22 @@
 {
   "name": "mockery",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Mockery — static-site deployment platform (zipship v2)",
+  "private": true,
+  "type": "module",
   "scripts": {
     "dev": "pnpm turbo --filter=@mockery/web --filter=@mockery/api dev",
+    "dev:api": "pnpm --filter @mockery/api dev",
+    "dev:web": "pnpm --filter @mockery/web dev",
     "dev:desktop": "pnpm turbo --filter=@mockery/desktop start",
-    "ui:add": "shadcn add -c packages/ui"
+    "typecheck": "tsc -p tsconfig.json",
+    "typecheck:workspaces": "pnpm turbo run typecheck",
+    "lint": "oxlint .",
+    "ui:add": "shadcn add -c packages/ui",
+    "db:generate": "drizzle-kit generate --config packages/db/drizzle.config.ts",
+    "db:up": "docker compose -f infra/docker/docker-compose.yml up -d",
+    "db:down": "docker compose -f infra/docker/docker-compose.yml down",
+    "db:migrate": "drizzle-kit migrate --config packages/db/drizzle.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +28,20 @@
       "onFail": "download"
     }
   },
-  "type": "module",
+  "dependencies": {
+    "drizzle-orm": "catalog:"
+  },
   "devDependencies": {
+    "@elysiajs/cors": "^1.4.2",
     "@tailwindcss/vite": "^4.3.2",
+    "@types/bun": "catalog:",
+    "@types/node": "catalog:",
+    "@types/pg": "catalog:",
+    "drizzle-kit": "catalog:",
+    "oxlint": "^1.71.0",
     "tailwindcss": "^4.3.2",
     "turbo": "^2.10.3",
+    "typescript": "catalog:",
     "zod": "3.25.76"
   }
 }

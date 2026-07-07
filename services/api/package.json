@@ -1,16 +1,29 @@
 {
   "name": "@mockery/api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun ../../scripts/kill-port.ts 3001 && bun --env-file=../../.env src/index.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
   "dependencies": {
-    "elysia": "^1.4.29"
+    "@elysiajs/cors": "^1.4.2",
+    "@mockery/config": "workspace:*",
+    "@mockery/db": "workspace:*",
+    "@mockery/shared": "workspace:*",
+    "@mockery/storage": "workspace:*",
+    "@mockery/deploy-core": "workspace:*",
+    "drizzle-orm": "catalog:",
+    "elysia": "catalog:",
+    "nodemailer": "catalog:",
+    "pg": "catalog:"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "catalog:",
+    "@types/pg": "catalog:",
+    "typescript": "catalog:"
   }
 }

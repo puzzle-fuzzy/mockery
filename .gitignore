@@ -12,6 +12,26 @@ dist
 dist-ssr
 *.local
 
+# Env
+.env
+.env.*
+!.env.example
+
+# Turbo / build caches
+.turbo
+.vite
+out
+build
+coverage
+
+# Code-graph index (local binary database)
+.codegraph/
+
+# Local storage (uploads + deployed sites)
+/storage
+/tmp
+services/api/storage
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

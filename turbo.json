@@ -7,6 +7,15 @@
       "outputs": [],
       "inputs": ["src/**/*.ts", "src/**/*.tsx"]
     },
+    "lint": {
+      "dependsOn": [],
+      "outputs": [],
+      "inputs": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "../../.oxlintrc.json"
+      ]
+    },
     "dev": {
       "cache": false,
       "persistent": true
